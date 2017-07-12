@@ -84,17 +84,18 @@ Evening 7pm-9pm
 
 Morning 9am-12pm  
 
+9am: All-hands wrap-up (1030 Valley Hall)
+
 * Lecture: RNA-Seq study design 
-*  Hands-on: 
+*  Hands-on *(optional)*:
  *  [Introduction to automation](introduction-to-automation.html)
  *  [GitHub](github.html)
  * [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
 
-Afternoon: 1:15pm - 3pm.  
+Afternoon: 1:15pm - 3pm *optional*
 
 * Hands-on: own data!
 
-3pm: All-hands wrap-up (1030 Valley Hall)
   
 
   
