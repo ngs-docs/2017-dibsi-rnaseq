@@ -12,7 +12,9 @@ If you're not comfortable working on the command line, please work through some 
 Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&src=typd)
 
 **Schedule and Location**:  
- 9am-3pm + Tu/Th evenings (7-8:30pm)  
+
+9am-3pm + Tu/Th evenings (7-8:30pm)  
+
 All sessions are in **Valley Hall**, unless otherwise noted.
 
 ## Workshop materials
@@ -49,7 +51,7 @@ Evening: 7pm-9pm: student presentations and questions! (social)
 Morning 9am-12pm
  
 * Lecture: Assembly evaluation
-* Hands-on:  Assembly evaluation
+* Hands-on:  [Assembly evaluation](assembly-evaluation.html)
 
 Afternoon: 1:15pm - 4pm.  
 
@@ -59,7 +61,7 @@ Afternoon: 1:15pm - 4pm.
 
 Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
 
-### Thursday, Day 4: Quantification and differential expression.
+### Thursday, Day 4: Quantification and differential expression
 
 Morning 9am-12pm
  
@@ -68,7 +70,7 @@ Morning 9am-12pm
 
 Afternoon: 1:15pm - 3pm.  
 
-* Lecture: Differntial Expression 
+* Lecture: Differential Expression 
 * Hands-on: [Differential Expression with DESeq2](deseq2-asthma.html) 
  * post-DE visualization?
  
@@ -78,7 +80,7 @@ Evening 7pm-9pm
 * Alternative: [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
 
 
-### Friday, Day 5:  Automation and repeatability.
+### Friday, Day 5:  Automation and repeatability
 
 Morning 9am-12pm  
 
@@ -93,8 +95,16 @@ Afternoon: 1:15pm - 3pm.
 * Hands-on: own data!
 
 3pm: All-hands wrap-up (1030 Valley Hall)
+  
 
-Useful References:  
+  
+  
+  
+  
+  
+  
+
+#### Useful References:  
 
 * [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
 * [GitHub](github.html)
