@@ -10,6 +10,7 @@ Table of Contents
 
    jetstream/boot
    jetstream/login
+   jetstream/ssh_changepassword
 
    command-line-and-rstudio
 
@@ -26,15 +27,19 @@ Table of Contents
    
    kmers-and-sourmash
 
+
    introduction-to-automation
 
 
-   Jupyter-Notebook-Notes
+   jupyter-notebook-demo/Jupyter-Notebook-Notes
    github
    database_resources
    filezila-file-transfer
+   
+   variant-calling
 
    analyzing_nanopore_data
 
 
+   
    for-instructors/index
