@@ -1,7 +1,7 @@
 # DIBSI Nonmodel mRNASeq Workshop (2017) 
 
 These are the schedule and classroom materials for the
-[2017 DIBSI nonmodel mRNAseq workshop at UC Davis](http://ivory.idyll.org/dibsi/DIBSI-RNASEQ.html),
+[2017 DIBSI nonmodel mRNAseq workshop at UC Davis](http://dibsi-rnaseq.readthedocs.io/en/latest/),
 which will run from July 17th to July 21st, 2017.
 
 This workshop runs under a [Code of Conduct](code-of-conduct.html). Please
