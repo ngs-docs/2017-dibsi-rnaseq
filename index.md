@@ -18,62 +18,69 @@ Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&sr
 All sessions are in **Valley Hall**, unless otherwise noted.
 
 ## Workshop materials
-*draft schedule -- in progress*
+*in progress*
 
-### Monday, Day 1: Introduction
+work in:
+* Lecture:  RNA-Seq uses & pitfalls
 
-* 11am: Introductions  (1030 Valley Hall)
-* 1:15pm: All-hands gathering to introduce across all workshops  (1030 Valley Hall)
+
+### Monday, Day 1: Introduction and QC
+
+* 11am: Introductions
+* 1:15pm: All-hands gathering to introduce across all workshops 
 * 3pm: Intro & setup for nonmodel mRNASeq workshop
- * Hands-on: [Booting a cloud computer from Jetstream](jetstream/boot.html)
+* Hands-on:
+   * [Booting a cloud computer from Jetstream](jetstream/boot.html)
+   * [Quality trimming your reads](quality-trimming.html)
 
-Evening 7-9pm, optional:  
+optional extras:  
 
 * Hands-on: [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
 
 
-### Tuesday, Day 2: QC and Assembly
+### Tuesday, Day 2: Assembly and Evaluation
 
 Morning: 9am-12pm
 
-* Lecture:  RNA-Seq uses & pitfalls
-* Hands-on: [Quality trimming your reads.](quality-trimming.html)
+* Lecture: Kmers, de bruijn graphs, diginorm, and assembly
+* Hands-on: [De novo RNAseq assembly](assembly-trinity.html) 
 
 Afternoon: 1:15pm - 3pm.  
 
-* Lecture: Kmers, de bruijn graphs, diginorm, and assembly
-* Hands-on:  [De novo RNAseq assembly](assembly-trinity.html)  
+* Lecture: Assembly evaluation
+* Hands-on: [Assembly evaluation](assembly-evaluation.html)
 
 Evening: 7pm-9pm: student presentations and questions! (social)
 
-### Wednesday, Day 3: Assembly Evalutation and Annotation
+### Wednesday, Day 3: Assembly Annotation and Quantification
 
 Morning 9am-12pm
  
-* Lecture: Assembly evaluation
-* Hands-on:  [Assembly evaluation](assembly-evaluation.html)
-
-Afternoon: 1:15pm - 4pm.  
-
 * Lecture: Annotation
  * Hands-on: [Transcriptome annotation](dammit_annotation.html) 
 
 
-Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
+Afternoon: 1:15pm - 4pm 
 
-### Thursday, Day 4: Quantification and differential expression
-
-Morning 9am-12pm
- 
 * Lecture: Quantification
 *  Hands-on: [Counting for variant calling and differential expression](counting.html)
 
-Afternoon: 1:15pm - 3pm.  
 
+Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
+
+### Thursday, Day 4: Differential Expression and Downstream Assessment
+
+Morning 9am-12pm
+ 
 * Lecture: Differential Expression 
 * Hands-on: [Differential Expression with DESeq2](deseq2-asthma.html) 
- * post-DE visualization?
- 
+
+Afternoon: 1:15pm - 3pm.  
+
+* Lecture: RNA-Seq Study design
+* Hands-on (tbd):
+  * (likely) Clustering and Enrichment analyses
+
 Evening 7pm-9pm
 
 * Hands-on: own data!
@@ -84,17 +91,16 @@ Evening 7pm-9pm
 
 Morning 9am-12pm  
 
-9am: All-hands wrap-up (1030 Valley Hall)
+9am: All-hands wrap-up 
 
-* Lecture: RNA-Seq study design 
-*  Hands-on *(optional)*:
+Since checkout is at 12, everything is optional after the hands-on meeting. Depending on interest, One or more of the instructors can stick around to teach or help you with your own data.
+
+Some options:  
+
  *  [Introduction to automation](introduction-to-automation.html)
  *  [GitHub](github.html)
- * [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
-
-Afternoon: 1:15pm - 3pm *optional*
-
-* Hands-on: own data!
+ *  [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
+ * Hands-on: own data!
 
   
 
