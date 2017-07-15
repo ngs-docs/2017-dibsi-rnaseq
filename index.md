@@ -52,7 +52,7 @@ Afternoon: 1:15pm - 3pm.
 
 Evening: 7pm-9pm: student presentations and questions! (social)
 
-### Wednesday, Day 3: Assembly Annotation and Quantification
+### Wednesday, Day 3: Annotation and Quantification
 
 Morning 9am-12pm
  
@@ -79,7 +79,7 @@ Afternoon: 1:15pm - 3pm.
 
 * Lecture: RNA-Seq Study design
 * Hands-on (tbd):
-  * (likely) Clustering and Enrichment analyses
+  * (maybe) [Pathway Analysis](pathway_analysis.html) 
 
 Evening 7pm-9pm
 

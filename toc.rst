@@ -23,6 +23,8 @@ Table of Contents
    counting
    deseq2-asthma
 
+   pathway_analysis
+
    rmarkdown_rnaseq
    
    kmers-and-sourmash

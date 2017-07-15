@@ -42,7 +42,7 @@ Create a python 3 environment for dammit:
     . ~/py3/bin/activate
     pip install -U pip
 
-Install [shmlast](https://github.com/camillescott/shmlast) (we used this earlier this week!):
+Install [shmlast](https://github.com/camillescott/shmlast) 
 
     pip install -r <(curl https://raw.githubusercontent.com/camillescott/shmlast/master/requirements.txt)
     pip install --upgrade pip
@@ -75,19 +75,18 @@ will perform that installation and preparation. If you just run `dammit database
 own, you should get a notification that some database tasks are not up-to-date -- we need
 to install them!
 
-In the interest of time, we're going to do a "quick"
-run -- this will omit OrthoDB, uniref, Pfam, and Rfam (ie, all the homology searches other
-than user-supplied databases). If you run without `--quick`, it will take a lot longer (about
-a half hour), but you'll have access to the full annotation pipeline.
+Unless we're running short on time, we're going to do a full run. If you want to run a quick
+version of the pipeline, add a parameter, `--quick`, to omit OrthoDB, Uniref, Pfam, and Rfam. 
+A "full" run will take longer to install and run, but you'll have access to the full annotation pipeline.
 
-    dammit databases --install --quick --busco-group metazoa
+    dammit databases --install --busco-group metazoa # --quick
 
 We used the "metazoa" BUSCO group. We can use any of the BUSCO databases, so long as we install
 them with the `dammit databases` subcommand. You can see the whole list by running
 `dammit databases -h`. You should try to match your species as closely as possible for the best
 results. If we want to install another, for example:
 
-    dammit databases --install --quick --busco-group fungi
+    dammit databases --install --busco-group fungi  # --quick
 
 ## Annotation
 
@@ -116,11 +115,11 @@ knowledge of your system!
 
 Run the command:
 
-    dammit annotate trinity.nema.fasta --quick --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 4
+    dammit annotate trinity.nema.fasta --busco-group metazoa --user-databases nema.reference.prot.faa --n_threads 6 # --quick
 
-Note that `--quick` is used for both the `databases` subcommand and the `annotate` subcommand. If we
-were to omit it at this point, it would warn us that the databases are not prepared and that we need
-to install them -- because we skipped over the full database install earlier.
+Note that if you used `--quick` for the `databases` subcommand, you would also need to use it here in 
+the `annotate` subcommand, otherwise dammit would warn us that not all the databases are prepared and 
+that we need to install them. 
 
 While dammit runs, it will print out which tasks its running to the terminal. dammit is
 written with a library called [pydoit](www.pydoit.org), which is a python workflow library similar
@@ -144,6 +143,13 @@ The most important files for you are `trinity.nema.fasta.dammit.fasta`,
 
 If the above `dammit` command is run again, there will be a message:
 `**Pipeline is already completed!**`
+
+To leave the python3 environment, type:
+
+```
+deactivate
+```
+
 
 ## References
 
