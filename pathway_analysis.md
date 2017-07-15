@@ -1,8 +1,6 @@
----
-title: "Pathway analysis"
-author: "Asela Wijeratne"
-output: html_document
----
+# Pathway Analysis
+
+*based on a tutorial by Asela Wijeratne*
 
 ###During this session you will learn about:
 
