@@ -446,7 +446,3 @@ use.  You can increase (or decrease) them based on what machines you are running
 Once this completes, you'll have an assembled transcriptome in
 `${PROJECT}/assembly/trinity_out_dir/Trinity.fasta`.
 
-## Evaluation
-
-If there is time, run this [tutorial for evaluating a transcriptome assembly](http://eel-pond.readthedocs.io/en/latest/4-evaluating-assembly.html).
-
