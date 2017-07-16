@@ -17,7 +17,7 @@ Table of Contents
    quality-trimming
    assembly-trinity
 
-   assembly-evaluation
+   evaluation
    dammit_annotation
 
    counting
@@ -41,7 +41,6 @@ Table of Contents
    variant-calling
 
    analyzing_nanopore_data
-
 
    
    for-instructors/index
