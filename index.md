@@ -63,7 +63,7 @@ Morning 9am-12pm
 Afternoon: 1:15pm - 4pm 
 
 * Lecture: Quantification
-*  Hands-on: [Counting for variant calling and differential expression](counting.html)
+*  Hands-on: [Quantification with Salmon](quantification.html)
 
 
 Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
@@ -124,8 +124,4 @@ Some options:
 * [Assessing & assembling nanopore data](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
 
 
-Further resources; continuing your learning.
-
-Questions and answers.
-
-Course review, input, and feedback.
+*  Hands-on: [Counting](counting.html)

@@ -20,6 +20,7 @@ Table of Contents
    assembly-evaluation
    dammit_annotation
 
+   quantification
    counting
    deseq2-asthma
 
