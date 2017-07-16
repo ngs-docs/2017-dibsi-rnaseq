@@ -11,12 +11,10 @@ sudo apt-get -y install python3-dev hmmer unzip \
     parallel libx11-dev python3-venv last-align transdecoder
 ```
 
-Create a python 3 environment:
+Activate your python environment:
 
 ```
-python3.5 -m venv ~/py3
-. ~/py3/bin/activate
-pip install -U pip
+source ~/pondenv/bin/activate
 ```
 
 ## Transrate
@@ -34,6 +32,19 @@ curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.
 tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
 echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/pondenv/bin/activate
 source ~/pondenv/bin/activate
+```
+
+### Install BUSCO
+
+```
+cd
+git clone https://gitlab.com/ezlab/busco.git
+pushd busco && python setup.py install && popd
+```
+
+```
+export PATH=$HOME/busco/scripts:$PATH
+echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
 ```
 
 Make a new directory and get the reads together:
