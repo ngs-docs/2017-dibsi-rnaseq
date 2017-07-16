@@ -48,7 +48,7 @@ Morning: 9am-12pm
 Afternoon: 1:15pm - 3pm.  
 
 * Lecture: Assembly evaluation
-* Hands-on: [Assembly evaluation](assembly-evaluation.html)
+* Hands-on: [Assembly evaluation](evaluation.html)
 
 Evening: 7pm-9pm: student presentations and questions! (social)
 
