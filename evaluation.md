@@ -2,7 +2,7 @@
 
 We will be using Transrate and Busco!
 
-## Jetstream instance and install virtualenv
+## Install
 
 ```
 sudo apt-get -y install python3-dev hmmer unzip \
