@@ -65,53 +65,6 @@ You will also need to set the default Java version to 1.8
 sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 ```
 
-Install transrate
-
-We use [transrate](http://hibberdlab.com/transrate/getting_started.html)
-to evaluate assemblies.  Install!
-
-```
-cd
-curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
-tar -zxf transrate-1.0.3-linux-x86_64.tar.gz
-echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64"' >> ~/pondenv/bin/activate
-curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
-tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
-echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/pondenv/bin/activate
-source ~/pondenv/bin/activate
-```
-
-Install busco
-
-```
-cd
-git clone https://gitlab.com/ezlab/busco.git
-cd busco
-echo "export PATH=$PATH:$(pwd)" >> ~/pondenv/bin/activate
-curl -OL http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
-curl -OL http://busco.ezlab.org/datasets/eukaryota_odb9.tar.gz
-tar -xzvf metazoa_odb9.tar.gz 
-tar -xzvf eukaryota_odb9.tar.gz
-source ~/pondenv/bin/activate
-```
-
-Install salmon
-
-We will use Salmon to quantify expression of transcripts.
-[Salmon](https://github.com/COMBINE-lab/salmon) is a new breed of
-software for quantifying RNAseq reads that is both really fast and
-takes transcript length into consideration ([Patro et al. 2015]
-(http://biorxiv.org/content/early/2015/06/27/021592)).
-
-```
-cd
-curl -LO https://github.com/COMBINE-lab/salmon/releases/download/v0.7.2/Salmon-0.7.2_linux_x86_64.tar.gz
-tar -xvzf Salmon-0.7.2_linux_x86_64.tar.gz
-cd Salmon*/bin
-echo export PATH=$PATH:$(pwd) >> ~/pondenv/bin/activate
-source ~/pondenv/bin/activate
-```
-
 Load your data into ``/mnt/work/data``.  You may need to make the
 `/mnt/` directory writeable by doing
 
