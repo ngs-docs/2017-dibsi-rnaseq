@@ -2,9 +2,39 @@
 
 We will be using Transrate and Busco!
 
+## Jetstream instance and install virtualenv
+
+```
+sudo apt-get -y install python3-dev hmmer unzip \
+    infernal ncbi-blast+ liburi-escape-xs-perl emboss liburi-perl \
+    build-essential libsm6 libxrender1 libfontconfig1 \
+    parallel libx11-dev python3-venv last-align transdecoder
+```
+
+Create a python 3 environment:
+
+```
+python3.5 -m venv ~/py3
+. ~/py3/bin/activate
+pip install -U pip
+```
+
 ## Transrate
 
 [Transrate](http://hibberdlab.com/transrate/getting_started.html) serves two main purposes. It can compare two assemblies to see how similar they are. Or, it can give you a score which represents proportion of input reads that provide positive support for the assembly. We will use transrate to get a score for the assembly. Use the trimmed reads. For a further explanation of metrics and how to run the reference-based transrate, see the [documentation](http://hibberdlab.com/transrate/metrics.html) and the paper by [Smith-Unna et al. 2016](http://genome.cshlp.org/content/early/2016/06/01/gr.196469.115). 
+
+### Install Transrate
+
+```
+cd
+curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
+tar -zxf transrate-1.0.3-linux-x86_64.tar.gz 
+echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64"' >> ~/pondenv/bin/activate
+curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
+tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
+echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/pondenv/bin/activate
+source ~/pondenv/bin/activate
+```
 
 Make a new directory and get the reads together:
 
@@ -39,6 +69,17 @@ transrate --assembly=Trinity.fixed.fasta --threads=2 \
 * Website: http://busco.ezlab.org/
 * Simho et al. 2015: http://bioinformatics.oxfordjournals.org/content/31/19/3210
 * http://gitlab.com/ezlab/busco/raw/master/BUSCO_v2.0_userguide.pdf
+
+### Install BUSCO
+
+```
+cd
+git clone https://gitlab.com/ezlab/busco.git
+pushd busco && python setup.py install && popd
+
+export PATH=$HOME/busco/scripts:$PATH
+echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
+```
 
 Run the actual command:
 
