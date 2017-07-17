@@ -84,7 +84,7 @@ If you see all the files you think you should, good!  Otherwise, debug.
 These are FASTQ files -- let's take a look at them:
 
 ```
-less 0Hour_ATCACG_L002_R1_001.fastq.gz
+less 0Hour_ATCACG_L002_R1_001.extract.fastq.gz
 ```
 
 (use the spacebar to scroll down, and type 'q' to exit 'less')
