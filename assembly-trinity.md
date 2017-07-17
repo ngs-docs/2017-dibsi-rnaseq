@@ -65,40 +65,6 @@ You will also need to set the default Java version to 1.8
 sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 ```
 
-Load your data into ``/mnt/work/data``.  You may need to make the
-`/mnt/` directory writeable by doing
-
-```
-sudo chmod a+rwxt /mnt
-```
-
-First, and then creating the subdirectories
-
-```
-cd /mnt
-mkdir -p work work/data
-cd /mnt/work/data
-```
-
-Download subset of data:
-
-```
-cd /mnt/work
-curl -O https://s3.amazonaws.com/public.ged.msu.edu/mrnaseq-subset.tar
-cd data
-tar xvf ../mrnaseq-subset.tar
-```
-
-Define your $PROJECT variable to be the location of your work
-directory; in this case, it will be ``/mnt/work``:
-
-```
-export PROJECT=/mnt/work
-```
-
-Now load your data in!
-
-
 ## Check that your data is where it should be
 
 Check:
@@ -115,9 +81,6 @@ you should see a bunch of files like:
 ```
 0Hour_ATCACG_L002_R1_001.fastq.gz
 ```
-
-## Quality trimming and light quality filtering
-
 
 Make sure you've got the PROJECT location defined, and your data is there:
 
@@ -152,69 +115,16 @@ Check to make sure it worked
 printf "I see $(ls -1 *.fastq.gz | wc -l) files here.\n"
 ```
 
-You can also do an ``ls`` to list the files.
-
-If you see only one entry, `*.fastq.gz`, then the ln command above didn't work properly.  One possibility is that your files aren't in your data directory; another is that their names don't end with
-`.fastq.gz`.
 
 
-### Find the right Illumina adapters
+We will re-use the trimmed reads from the previous lesson. 
 
-You'll need to know which Illumina sequencing adapters were used for
-your library in order to trim them off. Below, we will use the TruSeq3-PE.fa
-adapters:
+Check to make sure the files are there:
 
 ```
-wget https://anonscm.debian.org/cgit/debian-med/trimmomatic.git/plain/adapters/TruSeq3-PE.fa
-```
-
-Note: If running this on your own data, make sure these are the right adapters for your data.  If they are the right adapters, you should see that some of the reads are trimmed; if they're not, you won't see anything get trimmed.
-   
-### Adapter trim each pair of files
-
-See excellent paper on trimming from [MacManes 2014](http://journal.frontiersin.org/article/10.3389/fgene.2014.00013/full).
-
-(From this point on, you may want to be running things inside of
-screen, so that you can leave it running while you go do something
-else.)
-
-Run:
-
-```
-rm -f orphans.qc.fq.gz
-
-for filename in *_R1_*.fastq.gz
-do
-# first, make the base by removing fastq.gz
-  base=$(basename $filename .fastq.gz)
-  echo $base
-        
-# now, construct the R2 filename by replacing R1 with R2
-  baseR2=${base/_R1_/_R2_}
-  echo $baseR2
-        
-# finally, run Trimmomatic
-  TrimmomaticPE ${base}.fastq.gz ${baseR2}.fastq.gz \
-    ${base}.qc.fq.gz s1_se \
-    ${baseR2}.qc.fq.gz s2_se \
-    ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 \
-    LEADING:2 TRAILING:2 \
-    SLIDINGWINDOW:4:2 \
-    MINLEN:25
-        
-# save the orphans
-  gzip -9c s1_se s2_se >> orphans.qc.fq.gz
-  rm -f s1_se s2_se
-done
-```
-
-The paired sequences output by this set of commands will be in the files ending in ``.qc.fq.gz``, with any orphaned sequences all together
-in ``orphans.qc.fq.gz``.
-
-Make these trimmed reads read-only and keep them, as we will reuse them later.
-
-```
-chmod u-w ${PROJECT}/quality/*.qc.fq.gz
+cd ${PROJECT}
+cd quality
+printf "I see $(ls -1 *.qc.fq.gz | wc -l) files here.\n"
 ```
 
 ### Interleave the sequences
