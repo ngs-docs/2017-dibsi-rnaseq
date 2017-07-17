@@ -227,26 +227,6 @@ Make these trimmed reads read-only and keep them, as we will reuse them later.
 chmod u-w ${PROJECT}/quality/*.qc.fq.gz
 ```
 
-### 3. Trimmomatic
-
-Now we're going to do some trimming!  We'll be using
-[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), which
-(as with fastqc) we've already installed via apt-get.
-
-The first thing we'll need are the adapters to trim off:
-
-```
-curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-semi-2015-03-04/TruSeq2-PE.fa
-```
-
-You should see output that looks like this:
-
-```
-...
-Input Read Pairs: 1000000 Both Surviving: 885734 (88.57%) Forward Only Surviving: 114262 (11.43%) Reverse Only Surviving: 4 (0.00%) Dropped: 0 (0.00%)
-TrimmomaticPE: Completed successfully
-```
-
 Questions:
 
 * How do you figure out what the parameters mean?
@@ -266,29 +246,8 @@ Links:
 
 * [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 
-### 4. FastQC again
 
-Run FastQC again on the trimmed files:
-
-```
-fastqc SRR1976948_1.qc.fq.gz
-fastqc SRR1976948_2.qc.fq.gz
-```
-
-And now view my copies of these files: 
-
-* [SRR1976948_1.qc_fastqc/fastqc_report.html](http://2016-metagenomics-sio.readthedocs.io/en/work/_static/SRR1976948_1.qc_fastqc/fastqc_report.html)
-* [SRR1976948_2.qc_fastqc/fastqc_report.html](http://2016-metagenomics-sio.readthedocs.io/en/work/_static/SRR1976948_2.qc_fastqc/fastqc_report.html)
-
-Let's take a look at the output files:
-
-```
-less SRR1976948_1.qc.fq.gz
-```
-
-(again, use spacebar to scroll, 'q' to exit less).
-
-### 5. MultiQc
+### MultiQc
 [MultiQC](http://multiqc.info/) aggregates results across many samples into a single report for easy comparison.
 
 Run Mulitqc on both the untrimmed and trimmed files
