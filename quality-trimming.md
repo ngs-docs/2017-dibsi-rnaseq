@@ -1,6 +1,6 @@
 # Short read quality and trimming
 
-Start up a Jetstream m1.small or larger
+Start up a Jetstream m1.medium
 [as per Jetstream startup instructions](https://angus.readthedocs.io/en/2017/jetstream/boot.html).
 
 ---
@@ -33,90 +33,58 @@ sudo apt-get install -f
 
 ## Data source
 
-We're going to be using a subset of metagenomic data from [Hu et al.,
-2016](http://mbio.asm.org/content/7/1/e01669-15.full). This paper
-from the Banfield lab samples some relatively low diversity environments
-and finds a bunch of nearly complete genomes.
+We will be using mRNAseq reads from a small subset of data from [Nematostella vectensis](https://en.wikipedia.org/wiki/Starlet_sea_anemone) [(Tulin et al., 2013)](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16). 
 
-### 1. Copying in some data to work with.
+Original RNAseq workflow protocol [here](https://khmer-protocols.readthedocs.io/en/ctb/mrnaseq/), more updated protocol [here](http://eel-pond.readthedocs.io/en/latest/).
 
-We've loaded subsets of the data onto a public location for you, to
-make everything faster for today's work.  We're going to put the
-files on your computer locally under the directory ``~/data``:
+Load your data into ``/mnt/work/data``.  You may need to make the
+`/mnt/` directory writeable by doing
 
 ```
-mkdir ~/data
+sudo chmod a+rwxt /mnt
 ```
 
-Next, let's grab part of the data set:
+First, and then creating the subdirectories
 
 ```
-cd ~/data
-curl -O -L https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1976948_1.fastq.gz
-curl -O -L https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/metagenomics-scripps-2016-10-12/SRR1976948_2.fastq.gz
-```
- 
-Let's make sure we downloaded all of our data using md5sum.
-
-```
-md5sum SRR1976948_1.fastq.gz SRR1976948_2.fastq.gz
+cd /mnt
+mkdir -p work work/data
+cd /mnt/work/data
 ```
 
-You should see this:
+Download subset of data:
 
 ```
-37bc70919a21fccb134ff2fefcda03ce  SRR1976948_1.fastq.gz
-29919864e4650e633cc409688b9748e2  SRR1976948_2.fastq.gz
+cd /mnt/work
+curl -O https://s3.amazonaws.com/public.ged.msu.edu/mrnaseq-subset.tar
+cd data
+tar xvf ../mrnaseq-subset.tar
 ```
 
-Now if you type:
+Define your $PROJECT variable to be the location of your work
+directory; in this case, it will be ``/mnt/work``:
 
 ```
-ls -l
+export PROJECT=/mnt/work
 ```
 
-you should see something like:
+Now load your data in!
+
+
+## Check that your data is where it should be
+
+Check:
 
 ```
-total 346936
--rw-rw-r-- 1 ubuntu ubuntu 169620631 Oct 11 23:37 SRR1976948_1.fastq.gz
--rw-rw-r-- 1 ubuntu ubuntu 185636992 Oct 11 23:38 SRR1976948_2.fastq.gz
+ls $PROJECT/data
 ```
 
-These are 1m read subsets of the original data, taken from the beginning
-of the file.
-
-One problem with these files is that they are writeable - by default, UNIX
-makes things writeable by the file owner.  This poses an issue with creating typos or errors in raw data.  Let's fix that before we go
-on any further:
-
-```
-chmod u-w *
-```
-
-We'll talk about what these files are below.
-
-### 1. Copying data into a working location
-
-First, make a working directory; this will be a place where you can futz
-around with a copy of the data without messing up your primary data:
-
-```
-mkdir ~/work
-cd ~/work
-```
-
-Now, make a "virtual copy" of the data in your working directory by
-linking it in -- :
-
-```
-ln -fs ~/data/* .
-```
+If you see all the files you think you should, good!  Otherwise, debug.
 
 These are FASTQ files -- let's take a look at them:
 
 ```
-less SRR1976948_1.fastq.gz
+less 0Hour_ATCACG_L002_R1_001.fastq.gz
 ```
 
 (use the spacebar to scroll down, and type 'q' to exit 'less')
@@ -130,7 +98,47 @@ Links:
 
 * [FASTQ Format](http://en.wikipedia.org/wiki/FASTQ_format)
 
-### 2. FastQC
+## Quality trimming and light quality filtering
+
+Make sure you've got the PROJECT location defined, and your data is there:
+
+```
+set -u
+printf "\nMy raw data is in $PROJECT/data/, and consists of $(ls -1 ${PROJECT}/data/*.fastq.gz | wc -l) files\n\n"
+set +u
+```
+*Important:* If you get an error above or the count of files is wrong...STOP!! Revisit the installation instructions!
+
+### Link your data into your working directory
+
+Change into your project directory and make a workspace for quality trimming:
+
+```  
+cd ${PROJECT}
+mkdir -p quality
+cd quality
+```
+
+Now, link the data files into your new workspace
+
+```
+ln -s ../data/*.fastq.gz .
+```
+
+(Linking with `ln` avoids having to make a copy of the files, which will take up storage space.)
+
+Check to make sure it worked
+
+```
+printf "I see $(ls -1 *.fastq.gz | wc -l) files here.\n"
+```
+
+You can also do an ``ls`` to list the files.
+
+If you see only one entry, `*.fastq.gz`, then the ln command above didn't work properly.  One possibility is that your files aren't in your data directory; another is that their names don't end with
+`.fastq.gz`.
+
+### FastQC
 
 
 We're going to use 
@@ -141,8 +149,7 @@ you.
 Now, run FastQC on two files:
 
 ```
-fastqc SRR1976948_1.fastq.gz
-fastqc SRR1976948_2.fastq.gz
+fastqc *.fastq.gz
 ```
 
 Now type 'ls':
@@ -151,20 +158,9 @@ Now type 'ls':
 ls -d *fastqc.zip*
 ```
 
-to list the files, and you should see:
-
-```
-SRR1976948_1_fastqc.zip
-SRR1976948_2_fastqc.zip
-```
+to list the files, and you should see a number of files with the extensions `.fastqc.zip`.
 
 Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your RStudio Server console, if you like. To install and run an RStudio Server, go [here](https://angus.readthedocs.io/en/2017/visualizing-blast-scores-with-RStudio.html#installing-and-running-rstudio-on-jetstream). 
-
-
-or you can look at these copies of them:
-
-* [SRR1976948_1_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_1_fastqc/fastqc_report.html)
-* [SRR1976948_2_fastqc/fastqc_report.html](http://2017-ucsc-metagenomics.readthedocs.io/en/latest/_static/SRR1976948_2_fastqc/fastqc_report.html)
 
 Questions:
 
@@ -175,12 +171,61 @@ Links:
 
 * [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * [FastQC tutorial video](http://www.youtube.com/watch?v=bz93ReOv87Y)
+* [Examples of fastqc after technical sequencer problems](http://angus.readthedocs.io/en/2015/_static/2015-lecture2-sequencing.pptx.pdf)(starting on slide 40)
 
-There are several caveats about FastQC - the main one is that it only
-calculates certain statistics (like duplicated sequences) for subsets
-of the data (e.g. duplicate sequences are only analyzed for the first
-100,000 sequences in each file
+There are several caveats about FastQC - the main one is that it only calculates certain statistics (like duplicated sequences) for subsets
+of the data (e.g. duplicate sequences are only analyzed for the first 100,000 sequences in each file.
 
+### Find the right Illumina adapters
+
+You'll need to know which Illumina sequencing adapters were used for your library in order to trim them off. Below, we will use the TruSeq3-PE.fa adapters:
+
+```
+wget https://anonscm.debian.org/cgit/debian-med/trimmomatic.git/plain/adapters/TruSeq3-PE.fa
+```
+
+Note: If running this on your own data, make sure these are the right adapters for your data.  If they are the right adapters, you should see that some of the reads are trimmed; if they're not, you won't see anything get trimmed.
+   
+### Adapter trim each pair of files
+
+See excellent paper on trimming from [MacManes 2014](http://journal.frontiersin.org/article/10.3389/fgene.2014.00013/full).
+
+Run:
+
+```
+for filename in *_R1_*.fastq.gz
+do
+# first, make the base by removing fastq.gz
+  base=$(basename $filename .fastq.gz)
+  echo $base
+        
+# now, construct the R2 filename by replacing R1 with R2
+  baseR2=${base/_R1_/_R2_}
+  echo $baseR2
+        
+# finally, run Trimmomatic
+  TrimmomaticPE ${base}.fastq.gz ${baseR2}.fastq.gz \
+    ${base}.qc.fq.gz s1_se \
+    ${baseR2}.qc.fq.gz s2_se \
+    ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 \
+    LEADING:2 TRAILING:2 \
+    SLIDINGWINDOW:4:2 \
+    MINLEN:25
+        
+# save the orphans
+  gzip -9c s1_se s2_se >> orphans.qc.fq.gz
+  rm -f s1_se s2_se
+done
+```
+
+The paired sequences output by this set of commands will be in the files ending in ``.qc.fq.gz``, with any orphaned sequences all together
+in ``orphans.qc.fq.gz``.
+
+Make these trimmed reads read-only and keep them, as we will reuse them later.
+
+```
+chmod u-w ${PROJECT}/quality/*.qc.fq.gz
+```
 
 ### 3. Trimmomatic
 
@@ -192,19 +237,6 @@ The first thing we'll need are the adapters to trim off:
 
 ```
 curl -O -L http://dib-training.ucdavis.edu.s3.amazonaws.com/mRNAseq-semi-2015-03-04/TruSeq2-PE.fa
-```
-
-Now, to run Trimmomatic:
-
-```
-TrimmomaticPE SRR1976948_1.fastq.gz \
-                 SRR1976948_2.fastq.gz \
-        SRR1976948_1.qc.fq.gz s1_se \
-        SRR1976948_2.qc.fq.gz s2_se \
-        ILLUMINACLIP:TruSeq2-PE.fa:2:40:15 \
-        LEADING:2 TRAILING:2 \
-        SLIDINGWINDOW:4:2 \
-        MINLEN:25
 ```
 
 You should see output that looks like this:
