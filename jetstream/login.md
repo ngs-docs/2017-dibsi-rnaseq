@@ -14,15 +14,6 @@ decrypted with the private key, but it is computationally intractable (ie, it wo
 order of thousands of years) to determine a private key from a public key. You can read more about
 it [here](https://en.wikipedia.org/wiki/Public-key_cryptography).
 
-The good news is that there is already a registered public key for our Jetstream account. However,
-to make use of it, you'll need the private key. And so, we move on!
-
-## Getting the Private Key
-
-The private key has been posted on slack in the `#general` channel. You can download it by 
-visiting [here](https://dibsi.slack.com/files/camillescott/F60FMTCCA/angus_private_key), selecting
-**Actions**, and pressing download.
-
 ## Getting your instance IP address
 
 In order to connect to your instance, we need to know its IP address, its unique identifier on the
@@ -32,36 +23,74 @@ internet. This is listed in your instance details, circled below:
 
 Now, things diverge a little.
 
-## On MacOS/Linux
+## Setting up keys
 
-These systems have their own terminal by default. Find and open your terminal: on MacOS, you can
-search for Terminal in finder. 
-
-We're going to assume that the key file ended up in your `Downloads` folder. In your terminal,
-run:
-
-```bash
-cd && mv ~/Downloads/angus_private_key .
+1.  Open a terminal window (either `terminal` on OS X, or git bash on Windows).
+2.  Navigate to your home directory: 
 ```
-
-This puts the file in your home folder. Now, we need to set its permissions more strictly:
-
-```bash
-chmod 600 angus_private_key
+cd ~
 ```
-
-Finally, we can use the IP address from before, along with the common login name and the key, to log
-in:
-
-```bash
-ssh -i angus_private_key tx160085@YOUR_IP_ADDRESS
+3.  Find out if you already have a `.ssh` directory with a public private key pair:
 ```
+ls .ssh  
+```
+And look for 2 files: `id_rsa` and `id_rsa.pub`
 
-You should now have access to atmosphere within your local terminal.
+##### If you DO NOT have this directory, or those two files are not present,
 
-## On Windows
+4.  run a program to create a key-pair: 
+```
+ssh-keygen
+```
+5.  Accept the default location, and don't set a password.
 
-For Windows, we first need to actually *install* a terminal.
+##### Finally (whether you made a brand new key, or not)
+
+6.   Copy the contents of `id_rsa.pub` to your clipboard. (this is your "public key")
+7.   Go to your Jetstream account and click your username in the upper right corner.
+8.   Click 'Settings'
+9.   Click 'show more' under 'Advanced'
+10.  Under 'SSH Configuration' click the plus symbol
+11.  Paste your public key into the second box
+12.  In the top box, give your key a name so you know which private key it's associated with.
+
+Now, when you start a _new_ instance, your public key will be added automatically and you can login without a password.
+
+13.  SSH into your instance 
+```
+ssh [username]@[instance-ip-address]
+```
+14.  You should connect automatically(-ish) (without setting or typing your password)
+
+If you have an **already running instance** that you want to access in this way,
+
+15.  Open a new terminal (git bash on Windows) window.
+16.  Copy your public key to your instance: 
+```
+scp [username]@[ip-address]:.ssh/new_key.pub
+```
+17.  Using the web interface or logging in using your username and password, navigate to the correct directory: 
+```
+cd ~/.ssh
+```
+18.  Use `ls -a` to display files. You should see `new_key.pub`
+
+19.  Give that file the magic name:
+```
+mv new_key.pub authorized_keys
+```
+20.  Retry ssh to see if it worked. 
+```
+ssh [username]@[instance-ip-address]
+```
+Hopefully should now have access to atmosphere within your local terminal!
+
+
+
+
+#### Notes for Windows
+
+For Windows, we need to *install* a terminal. Here we'll use mobaxterm.
 
 ### Install mobaxterm
 
