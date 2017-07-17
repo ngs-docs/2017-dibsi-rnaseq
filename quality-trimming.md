@@ -162,12 +162,6 @@ to list the files, and you should see a number of files with the extensions `.fa
 
 Inside each of the fatqc directories you will find reports from the fastqc. You can download these files using your RStudio Server console, if you like. To install and run an RStudio Server, go [here](https://angus.readthedocs.io/en/2017/visualizing-blast-scores-with-RStudio.html#installing-and-running-rstudio-on-jetstream). 
 
-Alternatively, we can secure copy (scp) these files to our own laptops, and view them from there.
-```
-scp username@ip.address:/mnt/work/quality/*html ~/Desktop
-```
-where the first argument after `scp` is your login and location for files on your jetstream instance, and the second argument is the location to place the files on your own computer.
-
 Questions:
 
 * What should you pay attention to in the FastQC report?
@@ -181,6 +175,16 @@ Links:
 
 There are several caveats about FastQC - the main one is that it only calculates certain statistics (like duplicated sequences) for subsets
 of the data (e.g. duplicate sequences are only analyzed for the first 100,000 sequences in each file.
+
+#### View your files on your own computer
+As an alternative to viewing the files on the Rstudio server, we can secure copy (scp) these files to our own laptops, and view them from there.
+```
+mkdir ~/Desktop/nema_fastqc  # make a directory for these files
+scp username@ip.address:/mnt/work/quality/*html ~/Desktop/nema_fastqc
+```
+where the first argument after `scp` is your login and path for the files we want to copy (from the jetstream instance), and the second argument is the path to place the files on our own computer.
+
+
 
 ### Find the right Illumina adapters
 
