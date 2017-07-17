@@ -1,6 +1,6 @@
 # De novo transcriptome assembly with Trinity
 
-This tutorial will run through assembling mRNAseq reads from a small subset of data from [Nematostella vectensis](https://en.wikipedia.org/wiki/Starlet_sea_anemone) [(Tulin et al., 2013)](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16). 
+This tutorial will use mRNAseq reads from a small subset of data from [Nematostella vectensis](https://en.wikipedia.org/wiki/Starlet_sea_anemone) [(Tulin et al., 2013)](https://evodevojournal.biomedcentral.com/articles/10.1186/2041-9139-4-16). 
 
 Original RNAseq workflow protocol [here](https://khmer-protocols.readthedocs.io/en/ctb/mrnaseq/), more updated protocol [here](http://eel-pond.readthedocs.io/en/latest/).
 
