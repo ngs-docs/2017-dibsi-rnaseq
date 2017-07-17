@@ -13,7 +13,7 @@ Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&sr
 
 **Schedule and Location**:  
 
-9am-3pm + M/Th evenings (7-8:30pm)  
+9am-3pm + M/Th evenings (6:30-8pm)  
 
 All sessions are in **Valley Hall**, unless otherwise noted.
 
