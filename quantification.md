@@ -1,35 +1,43 @@
 # Analyzing RNAseq expression with Salmon
 
-Tutorial based on the Eel-Pond RNAseq workflow protocol [here](http://eel-pond.readthedocs.io/en/latest/).
+Based on the Eel-Pond RNAseq workflow protocol [here](http://eel-pond.readthedocs.io/en/latest/).
+
+## Getting Started
+
+If needed, start up a fresh Ubuntu 16.04 instance on Jetstream using the instructions [here](jetstream/boot.html).
+
+On a Jetstream instance, run the following commands to update the base software:
+
+```
+sudo apt-get update && \
+sudo apt-get -y install screen git curl gcc make g++ python-dev unzip \
+        default-jre pkg-config libncurses5-dev r-base-core r-cran-gplots \
+        python-matplotlib python-pip python-virtualenv sysstat fastqc \
+        trimmomatic bowtie samtools blast2 wget bowtie2 openjdk-8-jre \
+        hmmer ruby
+```
+
+---
 
 ## Installation
 
-If needed, start up a fresh Ubuntu 16.04 instance on Jetstream (m1.medium) using the boot instructions [here](jetstream/boot.html).
+We will use [Salmon](http://salmon.readthedocs.org/en/latest/) to
+quantify expression. Salmon is a new breed of software for quantifying RNAseq reads that is both really fast and takes
+transcript length into consideration ([Patro et al. 2015](http://dx.doi.org/10.1038/nmeth.4197)).
 
-On a Jetstream instance, run the following commands to update the base
-software:
+For further reading, see
+
+  * Intro blog post: http://robpatro.com/blog/?p=248
+  * A 2016 blog post evaluating and comparing methods [here](https://cgatoxford.wordpress.com/2016/08/17/why-you-should-stop-using-featurecounts-htseq-or-cufflinks2-and-start-using-kallisto-salmon-or-sailfish/)
+  * Salmon github repo [here](https://github.com/COMBINE-lab/salmon)
 
 
-We will use `salmon <http://salmon.readthedocs.org/en/latest/>`__ to
-quantify expression. `Salmon
-<https://github.com/COMBINE-lab/salmon>`__ is a new breed of software
-for quantifying RNAseq reads that is both really fast and takes
-transcript length into consideration (`Patro et al. 2015
-<http://dx.doi.org/10.1038/nmeth.4197>`__).
+```
+wget https://github.com/COMBINE-lab/salmon/releases/download/v0.8.2/Salmon-0.8.2_linux_x86_64.tar.gz
+tar xvfz Salmon-0.8.2_linux_x86_64.tar.gz
+```
 
-https://github.com/ngs-docs/2015-nov-adv-rna/blob/master/salmon.rst
-
-http://angus.readthedocs.io/en/2016/rob_quant/tut.html
-
-https://2016-aug-nonmodel-rnaseq.readthedocs.io/en/latest/quantification.html
-
-Be sure you have loaded the right Python packages
-::
-
-   source ~/pondenv/bin/activate
-
-Run Salmon
-==========
+## Run Salmon
 
 First, build an index for your new transcriptome:
 ::
@@ -108,3 +116,18 @@ and run it::
 
 This will give you a bunch of .counts files, processed from the quant.sf files
 and named for the directory they are in.
+
+
+
+# Other useful tutorials and references
+https://github.com/ngs-docs/2015-nov-adv-rna/blob/master/salmon.rst
+http://angus.readthedocs.io/en/2016/rob_quant/tut.html
+https://2016-aug-nonmodel-rnaseq.readthedocs.io/en/latest/quantification.html
+
+# not sure we need this:
+Be sure you have loaded the right Python packages
+::
+
+   source ~/pondenv/bin/activate
+
+

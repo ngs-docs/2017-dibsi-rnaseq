@@ -13,29 +13,24 @@ Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&sr
 
 **Schedule and Location**:  
 
-9am-3pm + Tu/Th evenings (7-8:30pm)  
+9am-3pm + M/Th evenings (7-8:30pm)  
 
 All sessions are in **Valley Hall**, unless otherwise noted.
 
 ## Workshop materials
-*in progress*
-
-work in:
-* Lecture:  RNA-Seq uses & pitfalls
 
 
 ### Monday, Day 1: Introduction and QC
 
-* 11am: Introductions
+* 11am: Introductions & RNA-Seq uses & pitfalls
 * 1:15pm: All-hands gathering to introduce across all workshops 
-* 3pm: Intro & setup for nonmodel mRNASeq workshop
+* 3pm: Intro & setup
 * Hands-on:
    * [Booting a cloud computer from Jetstream](jetstream/boot.html)
    * [Quality trimming your reads](quality-trimming.html)
 
-optional extras:  
 
-* Hands-on: [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
+* 7pm-9pm: student presentations and questions! (social)
 
 
 ### Tuesday, Day 2: Assembly and Evaluation
@@ -48,9 +43,9 @@ Morning: 9am-12pm
 Afternoon: 1:15pm - 3pm.  
 
 * Lecture: Assembly evaluation
-* Hands-on: [Assembly evaluation](assembly-evaluation.html)
+* Hands-on: [Assembly evaluation](evaluation.html)
 
-Evening: 7pm-9pm: student presentations and questions! (social)
+Evening: free time
 
 ### Wednesday, Day 3: Annotation and Quantification
 
@@ -79,49 +74,39 @@ Afternoon: 1:15pm - 3pm.
 
 * Lecture: RNA-Seq Study design
 * Hands-on (tbd):
-  * (maybe) [Pathway Analysis](pathway_analysis.html) 
+  * (tbd, but maybe: [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html))
 
 Evening 7pm-9pm
 
 * Hands-on: own data!
-* Alternative: [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
 
 
-### Friday, Day 5:  Automation and repeatability
+### Friday, Day 5:  Wrap-Up (+ optional Github)
 
 Morning 9am-12pm  
 
 9am: All-hands wrap-up 
 
-Since checkout is at 12, everything is optional after the hands-on meeting. Depending on interest, One or more of the instructors can stick around to teach or help you with your own data.
+Since housing checkout is at 12, everything is optional after the hands-on meeting. Depending on interest, One or more of the instructors can stick around to teach or help you with your own data.
+ 
+(Optional) Morning Hands-on:  
 
-Some options:  
-
- *  [Introduction to automation](introduction-to-automation.html)
  *  [GitHub](github.html)
- *  [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
- * Hands-on: own data!
+ 
+ 
+#### Useful Further Resources:  
 
-  
-
-  
-  
-  
-  
-  
-  
-
-#### Useful References:  
-
+* [Introduction to automation](introduction-to-automation.html)
 * [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
-* [GitHub](github.html)
-* [where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.](database_resources.html)
+* [Review and explore: Command line UNIX, and R/RStudio](command-line-and-rstudio.html)
+* [Pathway Analysis](pathway_analysis.html) 
 * [RMarkdown](rmarkdown_rnaseq.html)
+* [where do I find the data? NCBI, ENSEMBL, ENA; how to get FASTQ out of NCBI.](database_resources.html)
+
 *  [Adrienne Roeder](http://roeder.wicmb.cornell.edu/), Cornell - [Reaching biological conclusions from RNA-seq: the good, the bad, and the ugly](https://osf.io/qz3m6/)
 *  [Michael I Love](https://mikelove.github.io/), UNC Chapel Hill - ["Statistics and bias correction in RNAseq differential expression analysis"](https://osf.io/gbjhn/)
 *  [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - ["Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"](https://osf.io/bv85u/)
 *  C. Titus Brown, UC Davis - ["Effectively infinite: next steps in Data Intensive Biology."](https://osf.io/pbmeh/)
 * [Assessing & assembling nanopore data](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
 
-
-*  Hands-on: [Counting](counting.html)
+* [Counting](counting.html)
