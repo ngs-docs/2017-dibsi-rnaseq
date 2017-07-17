@@ -67,7 +67,7 @@ If you have an **already running instance** that you want to access in this way,
 15.  Open a new terminal (git bash on Windows) window.
 16.  Copy your public key to your instance: 
 ```
-scp [username]@[ip-address]:.ssh/new_key.pub
+scp ~/.ssh/new_key.pub [username]@[ip-address]:~/.ssh/new_key.pub
 ```
 17.  Using the web interface or logging in using your username and password, navigate to the correct directory: 
 ```
@@ -75,9 +75,9 @@ cd ~/.ssh
 ```
 18.  Use `ls -a` to display files. You should see `new_key.pub`
 
-19.  Give that file the magic name:
+19.  Copy that key into your authorized keys file:
 ```
-mv new_key.pub authorized_keys
+cat new_key.pub >> authorized_keys
 ```
 20.  Retry ssh to see if it worked. 
 ```
