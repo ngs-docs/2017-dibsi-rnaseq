@@ -83,6 +83,8 @@ cat new_key.pub >> authorized_keys
 ```
 ssh [username]@[instance-ip-address]
 ```
+If it didn't work, go to the instance Jetstream page and "Redeploy" your instance, and then retry the `ssh` command.
+
 Hopefully should now have access to atmosphere within your local terminal!
 
 
