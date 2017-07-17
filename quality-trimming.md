@@ -152,7 +152,7 @@ Now, run FastQC on two files:
 fastqc *.fastq.gz
 ```
 
-Now type 'ls':
+After this finishes running (has to run on each file so might take a while), type 'ls':
 
 ```
 ls -d *fastqc.zip*
