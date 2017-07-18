@@ -106,9 +106,11 @@ transrate --reference=trinity-nematostella-raw.fa --assembly=Trinity.fixed.fasta
 
 * Eukaryota database used with 429 genes
 * "Complete" lengths are within two standard deviations of the BUSCO group mean length
-* Website: http://busco.ezlab.org/
-* Simho et al. 2015: http://bioinformatics.oxfordjournals.org/content/31/19/3210
-* http://gitlab.com/ezlab/busco/raw/master/BUSCO_v2.0_userguide.pdf
+
+* Useful links:
+  * Website: [http://busco.ezlab.org/](http://busco.ezlab.org/)
+  * Paper: [Simao et al. 2015](http://bioinformatics.oxfordjournals.org/content/31/19/3210)
+  * [User Guide](http://gitlab.com/ezlab/busco/raw/master/BUSCO_v2.0_userguide.pdf)
 
 ### Run the actual command:
 
