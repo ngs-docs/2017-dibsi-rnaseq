@@ -13,7 +13,7 @@ Twitter hash tag: [#ngs2017](https://twitter.com/search?f=tweets&q=%23ngs2017&sr
 
 **Schedule and Location**:  
 
-9am-3pm + M/Th evenings (7-8:30pm)  
+9am-3pm + M/Th evenings (6:30-8pm)  
 
 All sessions are in **Valley Hall**, unless otherwise noted.
 
@@ -30,7 +30,7 @@ All sessions are in **Valley Hall**, unless otherwise noted.
    * [Quality trimming your reads](quality-trimming.html)
 
 
-* 7pm-9pm: student presentations and questions! (social)
+* 6:30pm-8pm: student presentations and questions! (social)
 
 
 ### Tuesday, Day 2: Assembly and Evaluation
@@ -76,7 +76,7 @@ Afternoon: 1:15pm - 3pm.
 * Hands-on (tbd):
   * (tbd, but maybe: [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html))
 
-Evening 7pm-9pm
+Evening 6:30pm-8pm
 
 * Hands-on: own data!
 
