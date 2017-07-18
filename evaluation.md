@@ -24,13 +24,12 @@ source ~/pondenv/bin/activate
 ### Install Transrate
 
 ```
-cd
-curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
-tar -zxf transrate-1.0.3-linux-x86_64.tar.gz 
+cd 
+sudo curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz | tar -xz
+cd transrate-1.0.3-linux-x86_64 
+./transrate --install-deps ref
+rm -f bin/librt.so.1
 echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64"' >> ~/pondenv/bin/activate
-curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
-tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
-echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/pondenv/bin/activate
 source ~/pondenv/bin/activate
 ```
 
@@ -71,6 +70,22 @@ transrate --assembly=Trinity.fixed.fasta --threads=2 \
 --left=left.fq.gz \
 --right=right.fq.gz \
 --output=${PROJECT}/evaluation/nema
+```
+
+Questions:
+* What is the transrate score?
+* When you run the command above again with this transcriptome assembled from all of the reads in the Nematostella data set, does the score improve?
+
+```
+curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
+gunzip trinity-nematostella-raw.fa.gz
+```
+
+* How do the two transcriptomes compare with each other?
+
+```
+transrate --reference=Trinity.fixed.fasta --assembly=trinity-nematostella-raw.fa --output=full_v_subset
+transrate --reference=trinity-nematostella-raw.fa --assembly=Trinity.fixed.fasta --output=subset_v_full
 ```
 
 ## BUSCO
