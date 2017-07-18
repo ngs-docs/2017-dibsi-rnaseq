@@ -42,8 +42,22 @@ pushd busco && python setup.py install && popd
 ```
 
 ```
+cd ~/busco/config/
+cp config.ini.default config.ini
+```
+
+Replace path to hmmsearch executable to `/usr/bin/`
+
+```
 export PATH=$HOME/busco/scripts:$PATH
 echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
+```
+
+Download the BUSCO databases
+```
+cd ~/busco/
+curl -OL http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
+tar -xvzf metazoa_odb9.tar.gz
 ```
 
 Make a new directory and get the reads together:
@@ -96,24 +110,13 @@ transrate --reference=trinity-nematostella-raw.fa --assembly=Trinity.fixed.fasta
 * Simho et al. 2015: http://bioinformatics.oxfordjournals.org/content/31/19/3210
 * http://gitlab.com/ezlab/busco/raw/master/BUSCO_v2.0_userguide.pdf
 
-### Install BUSCO
+### Run the actual command:
 
 ```
-cd
-git clone https://gitlab.com/ezlab/busco.git
-pushd busco && python setup.py install && popd
-
-export PATH=$HOME/busco/scripts:$PATH
-echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
-```
-
-Run the actual command:
-
-```
-BUSCO.py \
+run_BUSCO.py \
 -i Trinity.fixed.fasta \
--o nema_busco_metazoa -l /home/ubuntu/busco/metazoa_odb9 \
--m tran --cpu 2
+-o nema_busco_metazoa -l ~/busco/metazoa_odb9 \
+-m transcriptome --cpu 2
 ```
 
 Check the output:
@@ -121,3 +124,5 @@ Check the output:
 ```
 cat run_nema_busco_metazoa/short_summary_nema_busco_metazoa.txt
 ```
+
+How does the full transcriptome compare?
