@@ -141,35 +141,8 @@ fifth column is what edgeR etc will want - the "raw counts".
 However, they're not in a convenient location / format for edgeR to use;
 let's fix that.
 
-Now, grab the script...
-
-
-```
-   curl -L -O https://raw.githubusercontent.com/dib-lab/eel-pond/master/gather-counts.py
-```
-and run it
-
-```
-   python ./gather-counts.py
-```
-
-This will give you a bunch of .counts files, processed from the quant.sf files
-and named for the directory they are in.
-
-
-
 # Other useful tutorials and references
 https://github.com/ngs-docs/2015-nov-adv-rna/blob/master/salmon.rst
 http://angus.readthedocs.io/en/2016/rob_quant/tut.html
 https://2016-aug-nonmodel-rnaseq.readthedocs.io/en/latest/quantification.html
-
-
-
-
-# not sure we need this:
-Be sure you have loaded the right Python packages
-
-```
-   source ~/pondenv/bin/activate
-```
 
