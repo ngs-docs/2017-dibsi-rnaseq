@@ -24,13 +24,12 @@ source ~/pondenv/bin/activate
 ### Install Transrate
 
 ```
-cd
-curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz
-tar -zxf transrate-1.0.3-linux-x86_64.tar.gz 
+cd 
+sudo curl -SL https://bintray.com/artifact/download/blahah/generic/transrate-1.0.3-linux-x86_64.tar.gz | tar -xz
+cd transrate-1.0.3-linux-x86_64 
+./transrate --install-deps ref
+rm -f bin/librt.so.1
 echo 'export PATH=$PATH:"$HOME/transrate-1.0.3-linux-x86_64"' >> ~/pondenv/bin/activate
-curl -LO ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-x64-linux.tar.gz
-tar -zxf ncbi-blast-2.3.0+-x64-linux.tar.gz
-echo 'export PATH="$HOME/ncbi-blast-2.3.0+/bin:$PATH"' >> ~/pondenv/bin/activate
 source ~/pondenv/bin/activate
 ```
 
@@ -43,8 +42,22 @@ pushd busco && python setup.py install && popd
 ```
 
 ```
+cd ~/busco/config/
+cp config.ini.default config.ini
+```
+
+Replace path to hmmsearch executable to `/usr/bin/`
+
+```
 export PATH=$HOME/busco/scripts:$PATH
 echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
+```
+
+Download the BUSCO databases
+```
+cd ~/busco/
+curl -OL http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
+tar -xvzf metazoa_odb9.tar.gz
 ```
 
 Make a new directory and get the reads together:
@@ -73,6 +86,22 @@ transrate --assembly=Trinity.fixed.fasta --threads=2 \
 --output=${PROJECT}/evaluation/nema
 ```
 
+Questions:
+* What is the transrate score?
+* When you run the command above again with this transcriptome assembled from all of the reads in the Nematostella data set, does the score improve?
+
+```
+curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
+gunzip trinity-nematostella-raw.fa.gz
+```
+
+* How do the two transcriptomes compare with each other?
+
+```
+transrate --reference=Trinity.fixed.fasta --assembly=trinity-nematostella-raw.fa --output=full_v_subset
+transrate --reference=trinity-nematostella-raw.fa --assembly=Trinity.fixed.fasta --output=subset_v_full
+```
+
 ## BUSCO
 
 * Eukaryota database used with 429 genes
@@ -81,24 +110,13 @@ transrate --assembly=Trinity.fixed.fasta --threads=2 \
 * Simho et al. 2015: http://bioinformatics.oxfordjournals.org/content/31/19/3210
 * http://gitlab.com/ezlab/busco/raw/master/BUSCO_v2.0_userguide.pdf
 
-### Install BUSCO
+### Run the actual command:
 
 ```
-cd
-git clone https://gitlab.com/ezlab/busco.git
-pushd busco && python setup.py install && popd
-
-export PATH=$HOME/busco/scripts:$PATH
-echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
-```
-
-Run the actual command:
-
-```
-BUSCO.py \
+run_BUSCO.py \
 -i Trinity.fixed.fasta \
--o nema_busco_metazoa -l /home/ubuntu/busco/metazoa_odb9 \
--m tran --cpu 2
+-o nema_busco_metazoa -l ~/busco/metazoa_odb9 \
+-m transcriptome --cpu 2
 ```
 
 Check the output:
@@ -106,3 +124,5 @@ Check the output:
 ```
 cat run_nema_busco_metazoa/short_summary_nema_busco_metazoa.txt
 ```
+
+How does the full transcriptome compare?
