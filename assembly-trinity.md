@@ -65,69 +65,27 @@ You will also need to set the default Java version to 1.8
 sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 ```
 
-## Check that your data is where it should be
-
-Check:
-
-```
-ls $PROJECT/data
-```
-
-If you see all the files you think you should, good!  Otherwise, debug.
-
-If you're using the Tulin et al. data provided in the snapshot above,
-you should see a bunch of files like:
-
-```
-0Hour_ATCACG_L002_R1_001.fastq.gz
-```
-
-Make sure you've got the PROJECT location defined, and your data is there:
-
+## Then, let's check we still have our reads from yesterday's QC lesson
 ```
 set -u
-printf "\nMy raw data is in $PROJECT/data/, and consists of $(ls -1 ${PROJECT}/data/*.fastq.gz | wc -l) files\n\n"
+printf "\nMy trimmed data is in $PROJECT/quality/, and consists of $(ls -1 ${PROJECT}/quality/*.qc.fq.gz | wc -l) files\n\n"
 set +u
-```
-*Important:* If you get an error above or the count of files is wrong...STOP!! Revisit the installation instructions!
-
-### Link your data into your working directory
-
-Change into your project directory and make a workspace for quality trimming:
-
-```  
-cd ${PROJECT}
-mkdir -p quality
-cd quality
-```
-
-Now, link the data files into your new workspace
 
 ```
-ln -s ../data/*.fastq.gz .
+where set -u should let you know if you have any unset variables, i.e. if the `$PROJECT` variable is not defined. 
+
+If you see `-bash: PROJECT: unbound variable`, then you need to set the $PROJECT variable.  
 ```
-
-(Linking with `ln` avoids having to make a copy of the files, which will take up storage space.)
-
-Check to make sure it worked
-
+export PROJECT=/mnt/work
 ```
-printf "I see $(ls -1 *.fastq.gz | wc -l) files here.\n"
-```
+and then re-run the `printf` code block.
+
+NOTE: if you do not have files, please rerun quality trimming steps [here](quality-trimming.html)
 
 
+## Let's do digital normalization with khmer
 
-We will re-use the trimmed reads from the previous lesson. 
-
-Check to make sure the files are there:
-
-```
-cd ${PROJECT}
-cd quality
-printf "I see $(ls -1 *.qc.fq.gz | wc -l) files here.\n"
-```
-
-### Interleave the sequences
+### First, interleave the sequences
 
 Next, we need to take these R1 and R2 sequences and convert them into
 interleaved form, for the next step.  To do this, we'll use scripts
@@ -138,6 +96,8 @@ Now let's use a for loop again - you might notice this is only a minor
 modification of the previous for loop...
 
 ```
+cd ${PROJECT}/quality
+
 for filename in *_R1_*.qc.fq.gz
 do
 # first, make the base by removing .extract.fastq.gz
