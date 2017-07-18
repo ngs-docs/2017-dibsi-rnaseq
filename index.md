@@ -28,6 +28,10 @@ All sessions are in **Valley Hall**, unless otherwise noted.
 * Hands-on:
    * [Booting a cloud computer from Jetstream](jetstream/boot.html)
    * [Quality trimming your reads](quality-trimming.html)
+   * Using ssh to log in (instead of the web shell):
+     * [Log in using a password](jetstream/ssh_changepassword.html)
+     * *OR* [Add ssh keys to your instance](jetstream/login.html)
+
 
 
 * 6:30pm-8pm: student presentations and questions! (social)

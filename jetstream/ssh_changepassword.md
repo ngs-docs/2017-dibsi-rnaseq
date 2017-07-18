@@ -3,7 +3,7 @@
 To add a password to your Jetstream instance, 'Open the Web Shell' from the instance page.
 
 ```
-sudo passwd tx160085
+sudo passwd [username]
 ```
 Enter a password when prompted. The letters will not display when you type, so do not be alarmed.
 
@@ -14,7 +14,7 @@ Exit out of the Web Shell.
 Open your terminal and login:
 
 ```
-ssh tx160085@149.165.157.62
+ssh [username]@[ip.address] 
 ```
 
 Type your password when prompted.
