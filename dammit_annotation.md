@@ -174,6 +174,7 @@ If the above `dammit` command is run again, there will be a message:
 Cammille wrote dammit in Python, which includes a library to parse gff3 dammit output. To send this output to a useful table, we will need to open the Python environemnt.
 
 ```
+cd trinity.nema.fasta.dammit
 python
 ```
 
