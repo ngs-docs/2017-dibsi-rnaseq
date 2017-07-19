@@ -70,7 +70,7 @@ git clone https://gitlab.com/ezlab/busco.git
 pushd busco && python setup.py install && popd
 
 export PATH=$HOME/busco/scripts:$PATH
-echo 'export PATH=$HOME/busco/scripts:$PATH' >> $HOME/.bashrc
+echo 'export PATH=$HOME/busco/scripts:$PATH' >> ~/py3/bin/activate
 ```
 
 Finally, install dammit from the refactor/1.0 branch:
