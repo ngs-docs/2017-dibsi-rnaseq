@@ -72,7 +72,7 @@ Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket
 Morning 9am-12pm
  
 * Lecture: Differential Expression 
-* Hands-on: [Differential Expression with DESeq2](de.html) 
+* Hands-on: [Differential Expression with DESeq2](DE.html) 
 
 Afternoon: 1:15pm - 3pm.  
 
