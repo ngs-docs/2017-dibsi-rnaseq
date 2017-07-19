@@ -81,7 +81,7 @@ Note: if you prefer, you can use the annotated assembly we generated with the re
 Build an index for your new transcriptome:
 
 ```
-   salmon index --index nema --transcripts Trinity.fasta --type quasi
+   salmon index --index nema --transcripts trinity.nema.annot.fasta --type quasi
 ```
 Next, link in the QC reads (produced in [quality](quality-trimming.html):
 
