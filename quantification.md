@@ -59,9 +59,9 @@ and then re-run the `printf` code block.
 
 NOTE: if you do not have files, please rerun quality trimming steps [here](quality-trimming.html)
 
-## Run Salmon
+## Download or link an assembly
 
-First, download a full assembly we can use for mapping. This assembly was made with all Nematostella vectensis reads, rather than the subset we used in the [assembly](assembly-trinity.html) tutorial.
+We can download a full assembly to use for mapping. This assembly was made with all Nematostella vectensis reads, rather than the subset we used in the [assembly](assembly-trinity.html) tutorial.
 
 ```
    cd ${PROJECT}
@@ -69,18 +69,21 @@ First, download a full assembly we can use for mapping. This assembly was made w
    cd quant
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
    gunzip trinity-nematostella-raw.fa.gz
-   ln -s trinity-nematostella-raw.fa Trinity.fasta
-   # if you prefer, you can use the assembly we generated with the read subsets by linking it into this directory instead
-   rm Trinity.fasta
-   #ln -s ${PROJECT}/assembly/trinity_out_dir/Trinity.fasta .
+   ln -s trinity-nematostella-raw.fa trinity.nema.fasta
+   ```
+Note: if you prefer, you can use the assembly we generated with the read subsets by linking it into this directory instead
+```
+   #ln -s ${PROJECT}/assembly/trinity_out_dir/Trinity.fasta ./
 ```
 
-Then, build an index for your new transcriptome:
+## Run Salmon
+
+Build an index for your new transcriptome:
+
 ```
    salmon index --index nema --transcripts Trinity.fasta --type quasi
-
 ```
-And also link in the QC reads (produced in :doc:`1-quality`):
+Next, link in the QC reads (produced in [quality](quality-trimming.html):
 
 ```
    ln -s ../quality/*R1*.qc.fq.gz .
