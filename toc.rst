@@ -19,7 +19,7 @@ Table of Contents
    dammit_annotation
    quantification
    
-   de
+   DE
    
    introduction-to-automation
 
