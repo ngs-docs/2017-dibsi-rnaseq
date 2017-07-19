@@ -67,10 +67,14 @@ We can download a full assembly to use for mapping. This assembly was made with 
    cd ${PROJECT}
    mkdir -p quant
    cd quant
+```
+
+```
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
    gunzip trinity-nematostella-raw.fa.gz
    ln -s trinity-nematostella-raw.fa trinity.nema.full.fasta
-   ```
+```
+
 Note: if you prefer, you can use the annotated assembly we generated with the read subsets instead
 ```
    #ln -s ${PROJECT}/annotation/trinity.nema.fasta.dammit/trinity.nema.fasta.dammit.fasta ./trinity.nema.annot.fasta 
