@@ -104,6 +104,19 @@ results. If we want to install another, for example:
 dammit databases --install --busco-group fungi  # --quick
 ```
 
+Note: if you have limited space on your instance, you can also install these databases in a different
+location (e.g. on an external volume). You would want to run this command **before** running the database
+installs we just ran.
+
+```
+#Run  ONLY if you want to install databases in different location. 
+#To run, remove the `#` from the front of the following command:
+
+# dammit databases --database-dir /path/to/databases
+```
+
+
+
 ## Annotation
 
 Keep things organized! Let's make a project directory:
