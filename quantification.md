@@ -69,11 +69,11 @@ We can download a full assembly to use for mapping. This assembly was made with 
    cd quant
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
    gunzip trinity-nematostella-raw.fa.gz
-   ln -s trinity-nematostella-raw.fa trinity.nema.fasta
+   ln -s trinity-nematostella-raw.fa trinity.nema.full.fasta
    ```
-Note: if you prefer, you can use the assembly we generated with the read subsets by linking it into this directory instead
+Note: if you prefer, you can use the annotated assembly we generated with the read subsets instead
 ```
-   #ln -s ${PROJECT}/assembly/trinity_out_dir/Trinity.fasta ./
+   #ln -s ${PROJECT}/annotation/trinity.nema.fasta.dammit/trinity.nema.fasta.dammit.fasta ./trinity.nema.annot.fasta 
 ```
 
 ## Run Salmon
