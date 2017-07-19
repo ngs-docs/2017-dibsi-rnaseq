@@ -226,4 +226,6 @@ heatmap.2(d, main="nema (padj<0.05, log2FC = ±1)",
           trace="none", RowSideColors= myClusterSideBar)
 ```
 
+Additional links:
 
+[Example DE analysis from two populations of killifish! (Fundulus heteroclitus MDPL vs. MDPL)](https://github.com/ljcohen/Fhet_MDPL_MDPP_salinity_DE)
