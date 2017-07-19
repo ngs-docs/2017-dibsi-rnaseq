@@ -65,7 +65,7 @@ Afternoon: 1:15pm - 4pm
 *  Hands-on: [Quantification with Salmon](quantification.html)
 
 
-Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
+Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/). We'll be over there starting at ~5:30pm.
 
 ### Thursday, Day 4: Differential Expression and Downstream Assessment
 
