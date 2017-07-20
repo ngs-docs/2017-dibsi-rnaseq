@@ -207,7 +207,7 @@ d<-resSig
 dim(d)
 head(d)
 colnames(d)
-d<-up_down_FC[,c(8:17)]
+d<-d[,c(8:17)]
 d<-as.matrix(d)
 d<-as.data.frame(d)
 d<-as.matrix(d)
