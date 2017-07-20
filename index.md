@@ -93,7 +93,7 @@ Morning 9am-12pm
 
 9am: All-hands wrap-up 
 
-Since housing checkout is at 12, everything is optional after the hands-on meeting. Depending on interest, One or more of the instructors can stick around to teach or help you with your own data.
+Since housing checkout is at 12, everything is optional after the hands-on meeting. We will run a brief intro to github, and then depending on interest, one or more of the instructors can stick around to teach additional automation tutorials or help you with your own data.
  
 (Optional) Morning Hands-on:  
 
@@ -101,6 +101,7 @@ Since housing checkout is at 12, everything is optional after the hands-on meeti
  
  
 #### Useful Further Resources:  
+ Note that these are taken from the 2017 [ANGUS](http://angus.readthedocs.io/en/2017/index.html) workshop
 
 * [Introduction to automation](introduction-to-automation.html)
 * [Jupyter Notebook, R and Python for data science.](jupyter-notebook-demo/Jupyter-Notebook-Notes.html)
@@ -114,6 +115,4 @@ Since housing checkout is at 12, everything is optional after the hands-on meeti
 *  [Robert Patro](http://www.robpatro.com/redesign/), Stony Brook University - ["Don't count on it: Pragmatic and theoretical concerns and best practices for mapping and quantifying RNA-seq data"](https://osf.io/bv85u/)
 *  C. Titus Brown, UC Davis - ["Effectively infinite: next steps in Data Intensive Biology."](https://osf.io/pbmeh/)
 * [Assessing & assembling nanopore data](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
-
-* [Counting](counting.html)
 
