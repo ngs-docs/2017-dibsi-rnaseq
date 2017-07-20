@@ -11,37 +11,31 @@ Table of Contents
    jetstream/boot
    jetstream/login
    jetstream/ssh_changepassword
-
-   command-line-and-rstudio
-
    quality-trimming
-   assembly-trinity
-
-   evaluation
-   dammit_annotation
-
-   quantification
-   counting
-   deseq2-asthma
-
-   pathway_analysis
-
-   rmarkdown_rnaseq
    
-   kmers-and-sourmash
-
-
+   assembly-trinity
+   evaluation
+   
+   dammit_annotation
+   quantification
+   
+   DE
+   
    introduction-to-automation
 
 
-   jupyter-notebook-demo/Jupyter-Notebook-Notes
    github
+   jupyter-notebook-demo/Jupyter-Notebook-Notes
    database_resources
    filezila-file-transfer
    
    variant-calling
 
    analyzing_nanopore_data
-
+   kmers-and-sourmash
+   rmarkdown_rnaseq
+   counting
+   command-line-and-rstudio
    
    for-instructors/index
+  

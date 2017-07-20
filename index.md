@@ -65,20 +65,20 @@ Afternoon: 1:15pm - 4pm
 *  Hands-on: [Quantification with Salmon](quantification.html)
 
 
-Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/))
+Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/). We'll be over there starting at ~5:30pm.
 
 ### Thursday, Day 4: Differential Expression and Downstream Assessment
 
 Morning 9am-12pm
  
 * Lecture: Differential Expression 
-* Hands-on: [Differential Expression with DESeq2](deseq2-asthma.html) 
+* Hands-on: [Differential Expression with DESeq2](DE.html) 
 
 Afternoon: 1:15pm - 3pm.  
 
 * Lecture: RNA-Seq Study design
-* Hands-on (tbd):
-  * (tbd, but maybe: [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html))
+* Hands-on: own data!
+
 
 Evening 6:30pm-8pm
 
@@ -114,3 +114,5 @@ Since housing checkout is at 12, everything is optional after the hands-on meeti
 * [Assessing & assembling nanopore data](analyzing_nanopore_data.html) (Lisa Cohen and Jon Badalamenti)
 
 * [Counting](counting.html)
+
+* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)

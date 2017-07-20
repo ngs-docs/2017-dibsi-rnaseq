@@ -35,6 +35,7 @@ For further reading, see
 ## Download and make Salmon available in the path 
 
 ```
+cd
 wget https://github.com/COMBINE-lab/salmon/releases/download/v0.8.2/Salmon-0.8.2_linux_x86_64.tar.gz
 tar xvfz Salmon-0.8.2_linux_x86_64.tar.gz
 export PATH=$PATH:$HOME/Salmon-0.8.2_linux_x86_64/bin 
@@ -59,28 +60,35 @@ and then re-run the `printf` code block.
 
 NOTE: if you do not have files, please rerun quality trimming steps [here](quality-trimming.html)
 
-## Run Salmon
+## Download or link an assembly
 
-First, download a full assembly we can use for mapping. This assembly was made with all Nematostella vectensis reads, rather than the subset we used in the [assembly](assembly-trinity.html) tutorial.
+We can download a full assembly to use for mapping. This assembly was made with all Nematostella vectensis reads, rather than the subset we used in the [assembly](assembly-trinity.html) tutorial.
 
 ```
    cd ${PROJECT}
    mkdir -p quant
    cd quant
+```
+
+```
    curl -O https://s3.amazonaws.com/public.ged.msu.edu/trinity-nematostella-raw.fa.gz
    gunzip trinity-nematostella-raw.fa.gz
-   ln -s trinity-nematostella-raw.fa Trinity.fasta
-   # if you prefer, you can use the assembly we generated with the read subsets by linking it into this directory instead
-   rm Trinity.fasta
-   #ln -s ${PROJECT}/assembly/trinity_out_dir/Trinity.fasta .
+   ln -s trinity-nematostella-raw.fa trinity.nema.full.fasta
 ```
 
-Then, build an index for your new transcriptome:
+Note: if you prefer, you can use the annotated assembly we generated with the read subsets instead
 ```
-   salmon index --index nema --transcripts Trinity.fasta --type quasi
+   #ln -s ${PROJECT}/annotation/trinity.nema.fasta.dammit/trinity.nema.fasta.dammit.fasta ./trinity.nema.annot.fasta 
+```
+
+## Run Salmon
+
+Build an index for your new transcriptome:
 
 ```
-And also link in the QC reads (produced in :doc:`1-quality`):
+   salmon index --index nema --transcripts trinity.nema.annot.fasta --type quasi
+```
+Next, link in the QC reads (produced in [quality](quality-trimming.html):
 
 ```
    ln -s ../quality/*R1*.qc.fq.gz .
