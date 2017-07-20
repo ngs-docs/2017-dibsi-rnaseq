@@ -511,7 +511,7 @@ is a (non-exclusive) list of other uses that we've been thinking about --
 
 # Further Reading:
 
-* Blog post, [Using sourmash with RNAseq](http://ivory.idyll.org/blog/2016-sourmash.html)
+* CTB blog post [Using sourmash with RNAseq](http://ivory.idyll.org/blog/2016-sourmash.html)
 
 
 Chat with Luiz, Phil, or Titus if you are interested in these use cases!
