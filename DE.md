@@ -181,8 +181,6 @@ write.csv(resSig,file="nema_DESeq_padj0.05_log2FC1.csv")
 MA plot with gene names:
 
 ```
-resSig = res_ordered[res_ordered$padj < 0.05, ]
-resSig = resSig[resSig$log2FoldChange > 1 | resSig$log2FoldChange < -1,]
 plot(log2(res_ordered$baseMean), res_ordered$log2FoldChange, col=ifelse(res_ordered$padj < 0.05, "red","gray67"),main="nema (padj<0.05, log2FC = ±1)",xlim=c(1,20),pch=20,cex=1,ylim=c(-12,12))
 abline(h=c(-1,1), col="blue")
 genes<-resSig$GeneID
@@ -195,12 +193,7 @@ text(log2(baseMean_mygenes),log2FoldChange_mygenes,labels=genes,pos=2,cex=0.60)
 Heatmap
 
 ```
-up_down<-resSig
-dim(up_down)
-up_down_FC<-subset(up_down,up_down$log2FoldChange>1 | up_down$log2FoldChange< -1)
-dim(up_down_FC)
-d<-up_down_FC
-d<-na.omit(d)
+d<-resSig
 dim(d)
 head(d)
 colnames(d)
@@ -208,7 +201,7 @@ d<-up_down_FC[,c(8:17)]
 d<-as.matrix(d)
 d<-as.data.frame(d)
 d<-as.matrix(d)
-rownames(d) <- up_down_FC[,1]
+rownames(d) <- resSig[,1]
 head(d)
 
 hr <- hclust(as.dist(1-cor(t(d), method="pearson")), method="complete")
