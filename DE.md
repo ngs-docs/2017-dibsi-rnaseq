@@ -65,7 +65,11 @@ mv *full.quant ../ (move the "full" files back - we will work with just the subs
 ## Move the gene names to your home directory (to easily access it)
 ```
 cp /mnt/work/annotation/trinity.nema.fasta.dammit/nema_gene_name_id.csv ~/
+
 ```
+if you didn't run the annotation, and would like to download ours, download [here](_static/nema_gene_name_id.csv)
+
+
 
 ## Grab a special script plotPCAWithSampleNames.R
 

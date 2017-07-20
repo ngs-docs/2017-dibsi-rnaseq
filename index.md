@@ -77,7 +77,9 @@ Morning 9am-12pm
 Afternoon: 1:15pm - 3pm.  
 
 * Lecture: RNA-Seq Study design
-* Hands-on: own data!
+* Options:
+ * Hands-on: own data!
+ * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
 
 
 Evening 6:30pm-8pm
@@ -115,4 +117,3 @@ Since housing checkout is at 12, everything is optional after the hands-on meeti
 
 * [Counting](counting.html)
 
-* [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
