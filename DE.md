@@ -55,6 +55,11 @@ export PROJECT=/mnt/work
 cd $PROJECT/quant
 mkdir salmon_out
 
+#move the files
+mv *.quant salmon_out
+cd  salmon_out
+mv *full.quant ../ (move the "full" files back - we will work with just the subsets for now)
+
 ```
 
 ## Move the gene names to your home directory (to easily access it)
