@@ -58,7 +58,7 @@ mkdir salmon_out
 #move the files
 mv *.quant salmon_out
 cd  salmon_out
-rm -rf *full.quant
+mv *full.quant ../ (move the "full" files back - we will work with just the subsets for now)
 
 ```
 
