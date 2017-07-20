@@ -78,8 +78,8 @@ Afternoon: 1:15pm - 3pm.
 
 * Lecture: RNA-Seq Study design
 * Options:
- * Hands-on: own data!
- * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+  * Hands-on: own data!
+  * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
 
 
 Evening 6:30pm-8pm
