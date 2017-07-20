@@ -175,7 +175,7 @@ dim(res_genes)
 res_genes_merged <- merge(res_genes,filtered_norm_counts,by=unique("GeneID"))
 dim(res_genes_merged)
 head(res_genes_merged)
-res_ordered<-res_genes_merged_names_unique[order(res_genes_merged_names_unique$padj),]
+res_ordered<-res_genes_merged[order(res_genes_merged$padj),]
 write.csv(res_ordered, file="nema_DESeq_all.csv" )
 ```
 
