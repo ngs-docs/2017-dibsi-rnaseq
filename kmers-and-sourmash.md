@@ -227,8 +227,10 @@ cd ~/sourmash
 sourmash compute --scaled 10000 ~/data/ecoli_ref*pe*.fq.gz -o ecoli-reads.sig -k 31
 ```
 
-![](_static/Sourmash_flow_diagrams_QC.png)
-![](_static/Sourmash_flow_diagrams_compute.png)
+[![qc](_static/Sourmash_flow_diagrams_QC.thumb.png)](_static/Sourmash_flow_diagrams_QC.png)
+
+
+[![compute](_static/Sourmash_flow_diagrams_compute.thumb.png)](_static/Sourmash_flow_diagrams_compute.png)
 
 
 ## Compare reads to assemblies
@@ -244,8 +246,7 @@ sourmash compute --scaled 10000 -k 31 ~/data/ecoliMG1655.fa.gz -o ecoli-genome.s
 and now evaluate *containment*, that is, what fraction of the read content is
 contained in the genome:
 
-
-![](_static/Sourmash_flow_diagrams_search.png)
+[![search](_static/Sourmash_flow_diagrams_search.thumb.png)](_static/Sourmash_flow_diagrams_search.png)
 
 ```
 sourmash search -k 31 ecoli-reads.sig ecoli-genome.sig --containment
@@ -371,8 +372,7 @@ echo 'backend : Agg' > matplotlibrc
 
 Compare all the things:
 
-![](_static/Sourmash_flow_diagrams_compare.png)
-
+[![compare](_static/Sourmash_flow_diagrams_compare.thumb.png)](_static/Sourmash_flow_diagrams_compare.png)
 ```
 sourmash compare ecoli_many_sigs/* -o ecoli_cmp
 ```
@@ -388,7 +388,7 @@ which you can then via RStudio server or download via scp and view on your local
 
 Here's a PNG version:
 
-![E. coli comparison plot](_static/ecoli_cmp.matrix.png)
+[![E. coli comparison plot](_static/ecoli_cmp.matrix.thumb.png)](_static/ecoli_cmp.matrix.png)
 
 ## What's in my metagenome?
 
@@ -405,7 +405,7 @@ directory `.sbt.genbank-k31`.
 
 Next, run the 'gather' command to see what's in your ecoli genome --
 
-![](_static/Sourmash_flow_diagrams_gather.png)
+[![gather](_static/Sourmash_flow_diagrams_gather.thumb.png)](_static/Sourmash_flow_diagrams_gather.png)
 
 ```
 sourmash gather -k 31 ecoli-genome.sig ../genbank-k31.sbt.json
