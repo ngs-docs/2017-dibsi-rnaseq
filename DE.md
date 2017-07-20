@@ -1,6 +1,6 @@
 # Differential expression analysis with DESeq2
 
-## Upgrade R to the very latest (3.4.x)
+## Upgrade R (3.4.x)
 
 ```
 sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
@@ -71,7 +71,7 @@ wget https://raw.githubusercontent.com/ngs-docs/2017-dibsi-rnaseq/master/plotPCA
 
 ## RStudio!
 
-From this point on, we will be typing these commands into R Studio.
+From this point on, we will be adding these commands into R Studio.
 
 Load libraries
 ```
