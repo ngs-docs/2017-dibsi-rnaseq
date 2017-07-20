@@ -1,4 +1,11 @@
-# K-mers, k-mer specificity, and comparing samples with k-mer Jaccard distance.
+# A sourmash tutorial
+
+[sourmash](http://sourmash.readthedocs.io/en/latest/) is our lab's
+implementation of an ultra-fast lightweight approach to
+nucleotide-level search and comparison, called MinHash.
+
+You can read some background about MinHash sketches in this paper:
+[Mash: fast genome and metagenome distance estimation using MinHash. Ondov BD, Treangen TJ, Melsted P, Mallonee AB, Bergman NH, Koren S, Phillippy AM. Genome Biol. 2016 Jun 20;17(1):132. doi: 10.1186/s13059-016-0997-x.](http://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x)
 
 ## At the beginning
 
@@ -11,6 +18,9 @@ curl -O https://s3-us-west-1.amazonaws.com/spacegraphcats.ucdavis.edu/microbe-ge
 tar xzf microbe-genbank-sbt-k31-2017.05.09.tar.gz
 ```
 -- they take a long time :).
+
+# K-mers, k-mer specificity, and comparing samples with k-mer Jaccard distance.
+
 
 ## K-mers!
 
@@ -217,6 +227,10 @@ cd ~/sourmash
 sourmash compute --scaled 10000 ~/data/ecoli_ref*pe*.fq.gz -o ecoli-reads.sig -k 31
 ```
 
+![](_static/Sourmash_flow_diagrams_QC.png)
+![](_static/Sourmash_flow_diagrams_compute.png)
+
+
 ## Compare reads to assemblies
 
 Use case: how much of the read content is contained in the reference genome?
@@ -229,6 +243,9 @@ sourmash compute --scaled 10000 -k 31 ~/data/ecoliMG1655.fa.gz -o ecoli-genome.s
 
 and now evaluate *containment*, that is, what fraction of the read content is
 contained in the genome:
+
+
+![](_static/Sourmash_flow_diagrams_search.png)
 
 ```
 sourmash search -k 31 ecoli-reads.sig ecoli-genome.sig --containment
@@ -354,6 +371,8 @@ echo 'backend : Agg' > matplotlibrc
 
 Compare all the things:
 
+![](_static/Sourmash_flow_diagrams_compare.png)
+
 ```
 sourmash compare ecoli_many_sigs/* -o ecoli_cmp
 ```
@@ -365,7 +384,7 @@ sourmash plot --pdf --labels ecoli_cmp
 ```
 
 which will produce a file `ecoli_cmp.matrix.pdf` and `ecoli_cmp.dendro.pdf`
-which you can then download via FileZilla and view on your local computer.
+which you can then via RStudio server or download via scp and view on your local computer.
 
 Here's a PNG version:
 
@@ -385,6 +404,9 @@ After this database is unpacked, it produces a file
 directory `.sbt.genbank-k31`.
 
 Next, run the 'gather' command to see what's in your ecoli genome --
+
+![](_static/Sourmash_flow_diagrams_gather.png)
+
 ```
 sourmash gather -k 31 ecoli-genome.sig ../genbank-k31.sbt.json
 ```
@@ -476,6 +498,7 @@ actually present, so that you can extract them and map/align to them.
 It seems to have a very low false positive rate and is quite sensitive
 to strains.
 
+
 Above, we've shown you a few things that you can use sourmash for.  Here
 is a (non-exclusive) list of other uses that we've been thinking about --
 
@@ -484,6 +507,12 @@ is a (non-exclusive) list of other uses that we've been thinking about --
 * index and search private sequencing collections;
 
 * search all of SRA for overlaps in metagenomes;
+
+
+# Further Reading:
+
+* Blog post, [Using sourmash with RNAseq](http://ivory.idyll.org/blog/2016-sourmash.html)
+
 
 Chat with Luiz, Phil, or Titus if you are interested in these use cases!
 
