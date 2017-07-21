@@ -128,7 +128,6 @@ Run DESeq2:
 
 ```
 dds <- DESeqDataSetFromTximport(txi.salmon, ExpDesign, ~condition)
-levels(dds$condition) <- c("6Hour","0Hour")
 dds <- DESeq(dds, betaPrior=FALSE)
 ```
 
