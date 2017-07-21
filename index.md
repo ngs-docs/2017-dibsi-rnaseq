@@ -97,7 +97,9 @@ Since housing checkout is at 12, everything is optional after the hands-on meeti
  
 (Optional) Morning Hands-on:  
 
- *  [GitHub](github.html)
+  *  GitHub tutorials:
+    * from ANGUS 2017 [here](github.html)
+    * from ANGUS 2016 [here](LC-github.html)
  
  
 #### Useful Further Resources:  

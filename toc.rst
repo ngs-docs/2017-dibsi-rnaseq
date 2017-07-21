@@ -25,6 +25,8 @@ Table of Contents
 
 
    github
+   LC-github
+
    jupyter-notebook-demo/Jupyter-Notebook-Notes
    database_resources
    filezila-file-transfer
