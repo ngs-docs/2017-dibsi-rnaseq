@@ -41,13 +41,13 @@ All sessions are in **Valley Hall**, unless otherwise noted.
 
 Morning: 9am-12pm
 
-* Lecture: Kmers, de bruijn graphs, diginorm, and assembly
-* Hands-on: [De novo RNAseq assembly](assembly-trinity.html) 
+* Lecture: Kmers, de bruijn graphs, diginorm, and assembly (C. Titus Brown)
+* Hands-on: [De novo RNAseq assembly](_static/assembly-trinity.html) (Tessa)
 
 Afternoon: 1:15pm - 3pm.  
 
-* Lecture: Assembly evaluation
-* Hands-on: [Assembly evaluation](evaluation.html)
+* Lecture: [Assembly evaluation](_static/Jane_assembly_stats.pdf) (Jane)
+* Hands-on: [Assembly evaluation](evaluation.html) (Lisa)
 
 Evening: free time
 
@@ -55,14 +55,14 @@ Evening: free time
 
 Morning 9am-12pm
  
-* Lecture: Annotation
- * Hands-on: [Transcriptome annotation](dammit_annotation.html) 
+* Lecture: [Annotation](_static/Jane_transcriptome_annotation.pdf) (Jane)
+ * Hands-on: [Transcriptome annotation](dammit_annotation.html) (Lisa)
 
 
 Afternoon: 1:15pm - 4pm 
 
-* Lecture: Quantification
-*  Hands-on: [Quantification with Salmon](quantification.html)
+* Lecture: [Quantification](_static/quantification_slides_Patro_subset.pdf) (Tessa)
+*  Hands-on: [Quantification with Salmon](quantification.html) (Tessa)
 
 
 Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket.org/). We'll be over there starting at ~5:30pm.
@@ -71,15 +71,15 @@ Evening: free time / social [Wed Farmers' market!](http://www.davisfarmersmarket
 
 Morning 9am-12pm
  
-* Lecture: Differential Expression 
-* Hands-on: [Differential Expression with DESeq2](DE.html) 
+* Lecture: [Differential Expression](_static/Jane_differential_expression.pdf) (Jane)
+* Hands-on: [Differential Expression with DESeq2](DE.html) (Lisa)
 
 Afternoon: 1:15pm - 3pm.  
 
 * Lecture: RNA-Seq Study design
 * Options:
   * Hands-on: own data!
-  * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html)
+  * [Reference independent analyses with k-mers; sourmash.](kmers-and-sourmash.html) (Tessa)
 
 
 Evening 6:30pm-8pm

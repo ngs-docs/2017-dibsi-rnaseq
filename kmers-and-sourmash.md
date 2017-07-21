@@ -69,9 +69,8 @@ We'll go into a bit more detail later.
 ## K-mers and assembly graphs
 
 We've already run into k-mers before, as it turns out - when we were
-doing [transcriptome assembly](assembly-trinity.html).  One of the three major
-ways that transcriptome assembly works is by taking reads, breaking them into
-k-mers, and then "walking" from one k-mer to the next to bridge between
+doing [transcriptome assembly](assembly-trinity.html).  Most transcriptome assembly programs work 
+by taking reads, breaking them into k-mers, and then "walking" from one k-mer to the next to bridge between
 reads.  To see how this works, let's take the 16-base sequence above,
 and add another overlapping sequence:
     
