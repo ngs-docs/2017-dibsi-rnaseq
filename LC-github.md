@@ -41,13 +41,13 @@ Add some formatting things, like [hyperlinks](http://whatshouldwecallgradschool.
 
 or images:
 
-   ![gif](_static/tumblr_ne2ofn3hFs1r0kovlo1_r1_500.gif)
+   ![](_static/tumblr_ne2ofn3hFs1r0kovlo1_r1_500.gif)
 
 # Clone your repository
 
-Get your GitHub repository url, e.g. `https://github.com/ljcohen/super_awesome_killifish_data.git` is mine
+Get your GitHub repository url, e.g. `https://github.com/ljcohen/super_awesome_killifish_data.git`
 
-    [![git_c_imp](_static/git_clone_important.thumb.png)](_static/git_clone_important.png)
+ [![git_imp](_static/git_clone_important.thumb.png)](_static/git_clone_important.png)
 
 Then, on your local laptop or remote UNIX machine, navigate to a directory where you would like to copy the files. Then type:
    
@@ -138,7 +138,7 @@ Sometimes we have issues with software, find bugs or have questions, and want to
 
 Practice by creating an issue with this repo:
 
-    [![git_issue](_static/git_issue.thumb.png)](_static/git_issue.png)
+[![git_issue](_static/git_issue.thumb.png)](_static/git_issue.png)
    
 # Storage of Jupyter notebooks to explore data
 
